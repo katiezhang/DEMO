@@ -1,0 +1,27 @@
+.little-triangle{
+    width: 100px;
+    height: 100px;
+    background: #eee;
+}
+.little-triangle::before{
+    border: solid transparent;
+    border-width: 10px;
+    border-left-color: #e70808;
+    /* right: 0; */
+    /* top: 60%; */
+    content: ' ';
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+.little-triangle::after{
+    border: solid transparent;
+    border-width: 9px;
+    border-left-color: #22aa3f;
+    /* right: -26px; */
+    /* top: 61%; */
+    content: ' ';
+    width: 0;
+    height: 0;
+    position: absolute;
+}
