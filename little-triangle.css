@@ -1,9 +1,11 @@
+
+/* No.1 Little triangle */
 .little-triangle{
     width: 100px;
     height: 100px;
     background: #eee;
 }
-/* NO.1 */
+/* 1 */
 .little-triangle::before{
     border: solid transparent;
     border-width: 10px;
@@ -15,7 +17,7 @@
     height: 0;
     position: absolute;
 }
-/* NO.2 */
+/* 2 */
 .little-triangle::after{
     position: absolute;
     content: "";
@@ -26,4 +28,17 @@
     border-right: 8px solid transparent;
     border-bottom: 10px solid rgb(33, 182, 90);
     /* left: 40%; */
+}
+
+/* NO.2 linear-gradient渐变 */
+.cancel-btn span{
+    padding-bottom: 3px;
+    transition: background-position .3s;    
+    background-image: linear-gradient(90deg, rgb(7, 14, 73) 100%, transparent 0);
+    background-repeat: no-repeat;
+    background-size: 200% 5px;
+    background-position: 200% 100%;
+}
+.cancel-btn:hover span{
+    background-position: 100% 100%;
 }
