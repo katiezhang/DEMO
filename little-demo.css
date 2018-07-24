@@ -1,5 +1,4 @@
-
-/* No.1 Little triangle */
+/************************* No.1 Little triangle *************************/
 .little-triangle{
     width: 100px;
     height: 100px;
@@ -30,7 +29,7 @@
     /* left: 40%; */
 }
 
-/* NO.2 linear-gradient渐变 */
+/* ****************NO.2 linear-gradient渐变 ************************/
 .cancel-btn span{
     padding-bottom: 3px;
     transition: background-position .3s;    
