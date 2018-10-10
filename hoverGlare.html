@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hover glare</title>
+    <style>
+        .container {
+            position: relative;
+            background-color: #000;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .hoverLayer {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hoverGlare {
+            position: absolute;
+            background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 100%);
+            transform: translate(-100px, -100px);
+            width: 400px;
+            height: 400px;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="hoverLayer">
+        </div>
+        <div class="hoverGlare">
+        </div>
+    </div>
+
+</body>
+<script>
+    const boundingRect = document.getElementsByClassName('container')[0].getBoundingClientRect();
+
+    const hoverGlare = document.getElementsByClassName('hoverGlare')[0];
+
+    const glare = event => {
+        const relativeX = event.pageX - (boundingRect.left + window.scrollX);
+        const relativeY = event.pageY - (boundingRect.top + window.scrollY);
+        const normalizedX = relativeX - boundingRect.width / 2;
+        const normalizedY = relativeY - boundingRect.height / 2;
+        hoverGlare.style.opacity = 0.4;
+        hoverGlare.style.transform =
+            `translate(${normalizedX}px, ${normalizedY}px) translate(-${boundingRect.width / 2}px, -${boundingRect.height / 2}px)`;
+    }
+
+    const resetGlare = () => {
+        hoverGlare.style.opacity = 0;
+    }
+
+    const hoverLayer = document.getElementsByClassName('hoverLayer')[0];
+
+    hoverLayer.addEventListener('mousemove', glare);
+    hoverLayer.addEventListener('mouseleave', resetGlare);
+</script>
+
+</html>
