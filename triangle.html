@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Little triangle</title>
+    <style type="text/css">
+        .little-triangle {
+            width: 100px;
+            height: 100px;
+            background: #eee;
+        }
+
+        /* 1 */
+        .little-triangle::before {
+            border: solid transparent;
+            border-width: 10px;
+            border-left-color: #e70808;
+            /* right: 0; */
+            /* top: 60%; */
+            content: ' ';
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+
+        /* 2 */
+        .little-triangle::after {
+            position: absolute;
+            content: "";
+            background: transparent;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 10px solid rgb(33, 182, 90);
+            /* left: 40%; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="little-triangle"></div>
+</body>
+
+</html>
