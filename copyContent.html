@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>copy content</title>
+</head>
+
+<body>
+
+    <button class="tooltip-wrap" id="vectormap-copy-btn">
+        <div class="tooltip-content copy">Copy</div>
+    </button>
+    <div>fasfsdfasdfsdf, 我不知道除了什么问题，复制不上</div>
+
+    <script type="text/javascript">
+        document.getElementById('vectormap-copy-btn').addEventListener('click', copyContent);
+
+        function copyContent(event) {
+            let copyElementText = function (element) {
+                // element.focus();
+                // element.setSelectionRange(0, element.value.length);
+                document.execCommand('copy', false, null);
+            };
+            let input = document.createElement('input');
+            document.body.appendChild(input);
+            let evtTarget = event.target;
+            let value = evtTarget.parentElement.nextElementSibling.innerText;
+            // let value = evtTarget.parentElement.nextElementSibling.textContent;
+            input.setAttribute('value', value);
+            copyElementText(input);
+            input.parentElement.removeChild(input);
+        }
+    </script>
+</body>
+
+</html>
