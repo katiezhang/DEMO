@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1>webp</h1>
+        <img src="../image/data-source.webp" alt="">
+    </div>
+    <script src="../jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        function checkWebp() {
+            try {
+                return (document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0);
+            } catch (err) {
+                return false;
+            }
+        }
+        $(document).ready(function () {
+            var webp_good = checkWebp();
+
+            if (webp_good == false) {
+                $('img').each(function () {
+                    var src = $(this).attr('src');
+                    if (typeof src != 'undefined') {
+                        src = src.replace(/\.webp/, '.png'); //将webp格式转换成png格式
+                        $(this).attr('src', src);
+                    }
+
+                    var original = $(this).attr('original'); //针对用了懒加载的情况
+                    if (typeof original != 'undefined') {
+                        original = original.replace('/format,webp', '/format,png'); //将webp格式转换成png格式
+                        $(this).attr('original', original);
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>
